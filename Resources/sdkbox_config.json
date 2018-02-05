@@ -28,8 +28,7 @@
                     "id": "CgkI0sux8sMWEAIQBQ", 
                     "name": "incremental"
                 }
-            ], 
-            "web_client_id": "340534096218-goaafgmlsc8ut9730lae5kg2kh9m2i35.apps.googleusercontent.com", 
+            ],
             "clound_save": true, 
             "connect_on_start": false, 
             "show_achievement_notification": true, 

@@ -56,9 +56,8 @@ void KRBridgeGameServicesMobile::asyncGetDataFromCloud()
  *   + GPS_DISCONNECTED:    successfully disconnected.
  *   + GPS_CONNECTION_ERROR:error with google play services connection.
  */
-void KRBridgeGameServicesMobile::onConnectionStatusChanged( int status )
-{
-
+void KRBridgeGameServicesMobile::onConnectionStatusChanged( int status ) {
+    CCLOG("Connection Status: %d", status);
 }
 
 // Not used

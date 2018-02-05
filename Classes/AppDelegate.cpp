@@ -61,11 +61,12 @@ static int register_all_packages()
 
 bool AppDelegate::applicationDidFinishLaunching() {
 #ifdef SDKBOX_ENABLED
-    sdkbox::PluginGPG::init();
+    //sdkbox::PluginGPG::init();
+    KRBridgeGameServicesMobile::getInstance();
 #endif
-#ifdef SDKBOX_ENABLED
-    KRBridgeGameServicesMobile::getInstance()->signin();
-#endif
+//#ifdef SDKBOX_ENABLED
+//    KRBridgeGameServicesMobile::getInstance()->signin();
+//#endif
     // initialize director
     auto director = Director::getInstance();
     auto glview = director->getOpenGLView();

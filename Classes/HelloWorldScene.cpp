@@ -46,25 +46,47 @@ bool HelloWorld::init()
     // add a label shows "Hello World"
     // create and initialize a label
     
-    auto label = Label::createWithTTF("Hello World", "fonts/Marker Felt.ttf", 24);
+    // auto label = Label::createWithTTF("Hello World", "fonts/Marker Felt.ttf", 24);
     
     // position the label on the center of the screen
-    label->setPosition(Vec2(origin.x + visibleSize.width/2,
-                            origin.y + visibleSize.height - label->getContentSize().height));
+    //label->setPosition(Vec2(origin.x + visibleSize.width/2,
+    //                        origin.y + visibleSize.height - label->getContentSize().height));
 
     // add the label as a child to this layer
-    this->addChild(label, 1);
+    // this->addChild(label, 1);
 
     // add "HelloWorld" splash screen"
-    auto sprite = Sprite::create("HelloWorld.png");
+    // auto sprite = Sprite::create("HelloWorld.png");
 
     // position the sprite on the center of the screen
-    sprite->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
+    // sprite->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
 
     // add the sprite as a child to this layer
-    this->addChild(sprite, 0);
+    // this->addChild(sprite, 0);
 
-    KRBridgeGameServicesMobile::getInstance()->saveDataToCloud("");
+    //KRBridgeGameServicesMobile::getInstance()->saveDataToCloud("");
+
+    Menu* menu1 = Menu::create(
+                      MenuItemFont::create("SignIn ", [](Ref*) {
+                        sdkbox::PluginSdkboxPlay::signin();
+                       } ),
+                      MenuItemFont::create("Save Data",[](Ref*) {
+                        CCLOG("invoke save data");
+                        std::string sData = "k3data 333";
+                        const void* data = (const void*)sData.c_str();
+                        int len = (int)sData.length();
+                        sdkbox::PluginSdkboxPlay::saveGameDataBinary("key3", data, len);
+                      } ),
+                      MenuItemFont::create("load Data",[](Ref*) {
+                          CCLOG("invoke load data");
+                          sdkbox::PluginSdkboxPlay::loadAllGameData();
+                        } ),
+                      NULL
+    );
+
+    menu1->alignItemsVerticallyWithPadding(5);
+    menu1->setPosition(origin.x + visibleSize.width/2, origin.y + visibleSize.height/2);
+    addChild(menu1);
 
     return true;
 }
