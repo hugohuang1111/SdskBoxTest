@@ -239,7 +239,7 @@ namespace sdkbox {
          * Request connection to the platform-specific services backend.
          * This method will invoke plugin's listener <code>onConnectionStatusChanged</code> method.
          */
-        static void signin();
+        static void signin(bool showLoginUI=true);
 
         /**
          * Request disconnection from the GooglePlay/Game Center backend.
