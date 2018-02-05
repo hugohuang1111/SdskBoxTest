@@ -3,11 +3,12 @@ import org.apache.tools.ant.taskdefs.condition.Os
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion "25.0.0"
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
 
     defaultConfig {
-        applicationId "com.ironhidegames.android.kingdomrush4"
+        // applicationId "com.ironhidegames.android.kingdomrush4"
+        applicationId "com.sdkbox.gpg"
         minSdkVersion 15
         targetSdkVersion PROP_TARGET_SDK_VERSION
         versionCode 1
@@ -78,7 +79,8 @@ android {
 
             externalNativeBuild {
                 ndkBuild {
-                    arguments 'NDK_DEBUG=0'
+                    // enable CCLOG
+                    arguments 'NDK_DEBUG=1'
                 }
             }
         }
